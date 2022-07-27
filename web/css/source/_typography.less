@@ -1,0 +1,113 @@
+// /**
+//  * Copyright © Magento, Inc. All rights reserved.
+//  * See COPYING.txt for license details.
+//  */
+
+//
+//  Common
+//  _____________________________________________
+
+& when (@media-common =true) {
+    .lib-font-face(@family-name: @font-family-name__sans-serif-base,
+        @font-path: '@{baseDir}fonts/opensans/light/opensans-300',
+        @font-weight: 300,
+        @font-style: normal,
+        @font-display: swap);
+
+    .lib-font-face(@family-name: @font-family-name__sans-serif-base,
+        @font-path: '@{baseDir}fonts/opensans/regular/opensans-400',
+        @font-weight: 400,
+        @font-style: normal,
+        @font-display: swap);
+
+    .lib-font-face(@family-name: @font-family-name__sans-serif-base,
+        @font-path: '@{baseDir}fonts/opensans/semibold/opensans-600',
+        @font-weight: 600,
+        @font-style: normal,
+        @font-display: swap);
+
+    .lib-font-face(@family-name: @font-family-name__sans-serif-base,
+        @font-path: '@{baseDir}fonts/opensans/bold/opensans-700',
+        @font-weight: 700,
+        @font-style: normal,
+        @font-display: swap);
+
+    .lib-ttf-font-face(@family-name,
+        @font-path,
+        @font-weight: normal,
+        @font-style: normal) {
+        @font-face {
+            font-family: @family-name;
+            src: url('@{font-path}.ttf') format('truetype');
+            font-weight: @font-weight;
+            font-style: @font-style;
+        }
+    }
+
+    //  add fonts Poppins all weight
+
+    .lib-ttf-font-face( //  font weight 100
+        @family-name: @font-family__Poppins-base,
+        @font-path: '@{baseDir}fonts/Poppins/Poppins-Thin',
+        @font-weight: @font-weight__thin,
+        @font-style: normal,
+    );
+
+    .lib-ttf-font-face( //  font weight 200
+        @family-name: @font-family__Poppins-base,
+        @font-path: '@{baseDir}fonts/Poppins/Poppins-Extralight',
+        @font-weight: @font-weight__thin,
+        @font-style: normal,
+    );
+
+    .lib-ttf-font-face( //  font weight 300
+        @family-name: @font-family__Poppins-base,
+        @font-path: '@{baseDir}fonts/Poppins/Poppins-Light',
+        @font-weight: @font-weight__light,
+        @font-style: normal,
+    );
+
+    .lib-ttf-font-face( //  font weight 400
+        @family-name: @font-family__Poppins-base,
+        @font-path: '@{baseDir}fonts/Poppins/Poppins-Regular',
+        @font-weight: @font-weight__regular,
+        @font-style: normal,
+
+    );
+
+    .lib-ttf-font-face( //  font weight 500
+        @family-name: @font-family__Poppins-base,
+        @font-path: '@{baseDir}fonts/Poppins/Poppins-Medium',
+        @font-weight: @font-weight__heavier,
+        @font-style: normal,
+
+    );
+
+    .lib-ttf-font-face( //  font weight 600
+        @family-name: @font-family__Poppins-base,
+        @font-path: '@{baseDir}fonts/Poppins/Poppins-SemiBold',
+        @font-weight: @font-weight__heavier,
+        @font-style: normal,
+    );
+
+    .lib-ttf-font-face( //  font weight 700
+        @family-name: @font-family__Poppins-base,
+        @font-path: '@{baseDir}fonts/Poppins/Poppins-Bold',
+        @font-weight: @font-weight__bold,
+        @font-style: normal,
+    );
+
+    .lib-ttf-font-face( //  font weight 600
+        @family-name: @font-family__Poppins-base,
+        @font-path: '@{baseDir}fonts/Poppins/Poppins-ExtraBold',
+        @font-weight: @font-weight__heavier,
+        @font-style: normal,
+    );
+
+    .lib-ttf-font-face( //  font weight 900
+        @family-name: @font-family__Poppins-base,
+        @font-path: '@{baseDir}fonts/Poppins/Poppins-Black',
+        @font-weight: @font-weight__black,
+        @font-style: normal,
+    );
+}

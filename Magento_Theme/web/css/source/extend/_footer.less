@@ -1,0 +1,81 @@
+// /**
+//  * Copyright © Magento, Inc. All rights reserved.
+//  * See COPYING.txt for license details.
+//  */
+
+//
+//  Theme style footer
+//  _____________________________________________
+
+//  Footer
+@footer__background-color: @color-blue_dark8;
+@footer-links-color: @color-white;
+@footer-links-color-hover: @color-white;
+
+//
+//  Common
+//  _____________________________________________
+
+& when (@media-common =true) {
+    .footer-bottom {
+        .lib-css(background, @footer__background-color);
+
+        // .copyright {
+        //     .lib-css(background-color, @copyright__background-color);
+        //     .lib-css(color, @color-white);
+        //     padding: @indent__s;
+        // }
+        .link-icon {}
+    }
+
+}
+
+//
+//  Desktop
+//  _____________________________________________
+
+.media-width(@extremum, @break) when (@extremum ='min') and (@break =@screen__m) {
+    .newsletter-row {
+        background-color: @color-white;
+        justify-content: space-between;
+        padding: 52px 0 53px;
+        box-sizing: border-box;
+
+        .footer-newsletter {
+            margin-left: 15.7%;
+
+            .title-list {
+                margin-left: 17px;
+                margin-right: 18px;
+            }
+
+            .title {
+                margin-top: 20px;
+                margin-bottom: 6px;
+            }
+        }
+
+        .support {
+            text-align: center;
+        }
+    }
+
+    .footer {
+        &.content {
+            .block {
+                float: none;
+            }
+
+            ul {
+                padding-right: 50px;
+            }
+
+            .links {
+                width: 100%;
+                display: inline-block;
+                padding-right: 0;
+                vertical-align: top;
+            }
+        }
+    }
+}

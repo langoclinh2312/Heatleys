@@ -1,0 +1,73 @@
+// /**
+//  * Copyright © Magento, Inc. All rights reserved.
+//  * See COPYING.txt for license details.
+//  */
+
+//
+//  variables 
+//  _____________________________________________
+
+@header-icons-color: @color-blue-dodger_light0;
+@header-icons-color-hover: @color-blue-dodger_light0;
+
+@icon-search: '';
+@path__image-icon-search: '@{baseDir}images/icon_catalog_search/search-blue@2x.png';
+@icon-search__width: 18px;
+@icon-search__height: 18px;
+@icon-search__position: before;
+@icon-search__text-hide: false;
+
+//
+//  Common
+//  _____________________________________________
+
+// & when (@media-common =true) {}
+
+//
+//  Desktop
+//  _____________________________________________
+
+.media-width(@extremum, @break) when (@extremum ='min') and (@break =@screen__m) {
+    .block-search {
+        padding-left: 37px;
+        width: 366px;
+        float: left;
+
+        .control {
+            height: 48px;
+        }
+
+        input {
+            height: 100%;
+            padding-left: 15px;
+            padding-top: 7px;
+            border-radius: 5px 5px 0 0;
+            border-bottom: 3px solid @color-blue-dodger_light0;
+        }
+
+        .action.search {
+            .lib-button-icon(@_icon-font-content: @icon-search,
+                @_icon-font-size: 0,
+                @_icon-font-text-hide: true,
+                @_icon-font-line-height: 0);
+
+            .lib-icon-image(@_icon-image: @path__image-icon-search,
+                @_icon-image-width: @icon-search__width,
+                @_icon-image-height: @icon-search__height,
+                @_icon-image-position: @icon-search__position,
+                @_icon-image-text-hide: @icon-search__text-hide);
+            right: 17px;
+            top: 15px;
+
+            &:before {
+                background-size: @icon-search__width @icon-search__height;
+            }
+
+            &:focus {
+                &:before {
+                    .lib-css(color, @color-white);
+                }
+            }
+        }
+    }
+}

@@ -1,0 +1,107 @@
+// /**
+//  * Copyright © Magento, Inc. All rights reserved.
+//  * See COPYING.txt for license details.
+//  */
+
+//
+//  Import library
+//  _____________________________________________
+
+@import "slick/slick.less";
+@import "slick/slick-theme.less";
+
+//
+//  Variables
+//  _____________________________________________
+
+@col__width: 100%;
+@col2__width: 16.666666%;
+@col3__width: 25%;
+@col4__width: 33.333333%;
+@col5__width: 20%;
+@col6__width: 50%;
+@col__min-height: 1px;
+
+@title__letter-spacing: -0.25px;
+@title-list__line-height: 20px;
+@title-list__letter-spacing: 0;
+@title-list__color: @color-gray0;
+@title-list__font-size: 20.4px;
+@title-list__text-align: center;
+
+.row {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-wrap: wrap;
+    flex-wrap: wrap;
+}
+
+.col (@_col-width: @col__width,
+    @_col-min-height: @col__min-height) {
+    box-sizing: border-box;
+    position: relative;
+    min-height: @_col-min-height;
+    -webkit-box-flex: 0 0 @_col-width;
+    -ms-flex: 0 0 @_col-width;
+    flex: 0 0 @_col-width;
+    max-width: @_col-width;
+}
+
+//
+//  Common
+//  _____________________________________________
+
+& when (@media-common =true) {
+
+    p {
+        font-size: 13px;
+    }
+
+    .title-list {
+        .title {
+            letter-spacing: @title__letter-spacing;
+            text-align: @title-list__text-align;
+            font-size: @title-list__font-size;
+        }
+
+        .list {
+            color: @title-list__color;
+            letter-spacing: @title-list__letter-spacing;
+            line-height: @title-list__line-height;
+            text-align: @title-list__text-align;
+        }
+    }
+}
+
+//
+//  Desktop
+//  _____________________________________________
+
+.media-width(@extremum, @break) when (@extremum ='min') and (@break =@screen__m) {
+
+    .col-2 {
+        .col(@_col-width: @col2__width);
+    }
+
+    .col-3 {
+        .col(@_col-width: @col3__width);
+    }
+
+    .col-4 {
+        .col(@_col-width: @col4__width);
+    }
+
+    .col-5 {
+        .col(@_col-width: @col5__width);
+
+    }
+
+    .col-6 {
+        .col(@_col-width: @col6__width);
+    }
+}
+
+//
+//  Mobile
+//  _____________________________________________

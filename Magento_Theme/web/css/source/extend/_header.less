@@ -1,0 +1,256 @@
+// /**
+//  * Copyright © Magento, Inc. All rights reserved.
+//  * See COPYING.txt for license details.
+//  */
+
+//
+//  Theme style header
+//  _____________________________________________
+
+//  Messages
+@header-panel__background-color: @color-blue_dark7;
+@header__background-color: @color-blue_dark7;
+@header__color: @color-white;
+@secondary__color: @color-blue_dark2;
+
+//  icon
+@img-icon__width1: 36px;
+@img-icon__width2: 30px;
+
+@path__image-icon: '@{baseDir}images/icon_header_link/user-blue@2x.png';
+@icon__width: 23.25px;
+@icon__height: 23.25px;
+@icon__position: before;
+@icon__text-hide: false;
+@img-icon__margin-rigth: 8px;
+
+@path__image-home-icon: '@{baseDir}images/nav_icon_link/home-icon@2x.png';
+@nav-icon__width: 18px;
+@nav-icon__height: 18px;
+@nav-icon__position: before;
+@nav-icon__text-hide: false;
+
+@link-icon__margin-rigth: 26px;
+@link-icon__margin-top: 13px;
+
+// navigation
+@navigation-level0-item__font-size: 15.5px;
+@navigation-level0-item__font-weight: bold;
+@navigation-level0-item__letter-spacing: 0;
+
+//
+//  Common
+//  _____________________________________________
+
+& when (@media-common =true) {
+
+    // header top
+    .top-links {
+        list-style: none;
+        text-align: right;
+        margin: 0;
+        padding: 0;
+
+        .links {
+            margin: 3px 18px 3px 0;
+
+            a {
+                font-size: 12px;
+                line-height: 12px;
+
+                .fa-solid {
+                    margin-right: 6px;
+                }
+            }
+
+            &:last-child {
+                margin: 0;
+                margin-right: 1px
+            }
+        }
+    }
+
+    .page-header {
+        .widget.block {
+            .lib-css(margin, 0);
+        }
+
+        a {
+            color: @header__color;
+            font-weight: 600;
+            letter-spacing: 0;
+            font-size: 13.4px;
+            line-height: 25px;
+        }
+    }
+
+    // header middle
+    .header {
+        &.links {
+            display: inline-flex;
+            margin: 0;
+            list-style: none;
+            float: right;
+
+            ul {
+                &>li {
+                    display: inline-flex;
+                    align-items: center;
+                    margin: 0px;
+                }
+            }
+        }
+
+        .links-icon {
+            padding: 0;
+            list-style: none;
+        }
+    }
+
+    // navigatison
+    .nav-image {
+        .widget {
+            &.block {
+                span {
+                    border: 0;
+                    clip: rect(0, 0, 0, 0);
+                    height: 1px;
+                    margin: -1px;
+                    overflow: hidden;
+                    padding: 0;
+                    position: absolute;
+                    width: 1px;
+                }
+            }
+        }
+
+        a {
+            .lib-icon-image(@_icon-image: @path__image-home-icon,
+                @_icon-image-width: @nav-icon__width,
+                @_icon-image-height: @nav-icon__height,
+                @_icon-image-position: @nav-icon__position,
+                @_icon-image-text-hide: @nav-icon__text-hide);
+
+            &:before {
+                background-size: @nav-icon__width @nav-icon__height;
+            }
+
+        }
+    }
+}
+
+//
+//  Desktop
+//  _____________________________________________
+
+.media-width(@extremum, @break) when (@extremum ='min') and (@break =@screen__m) {
+
+    .page-header {
+        .header.panel:extend(.abs-add-clearfix-desktop all) {
+            padding-bottom: 8px;
+            padding-top: 10px;
+        }
+    }
+
+    //header middle 
+    .header {
+        &.content:extend(.abs-add-clearfix-desktop all) {
+            padding: 16px 19px 18px 18px;
+        }
+
+        .links-icon {
+            .lib-css(margin-right, @link-icon__margin-rigth);
+            .lib-css(margin-top, @link-icon__margin-top);
+
+            li {
+                margin-top: 10px;
+
+                img {
+                    .lib-css(width, @img-icon__width2);
+                    .lib-css(margin-right, @img-icon__margin-rigth);
+                }
+            }
+
+            &:nth-child(2) {
+                margin-right: 27px;
+                margin-top: 7px;
+
+                li {
+                    img {
+                        .lib-css(width, @img-icon__width1);
+                        margin-right: 9px;
+                    }
+                }
+            }
+        }
+
+        .logo {
+            margin: 0.8% 0;
+
+            img {
+                margin-left: 2px;
+            }
+        }
+
+        .authorization-link {
+            margin-bottom: 0;
+            padding-top: 14px;
+            .lib-icon-image(@_icon-image: @path__image-icon,
+                @_icon-image-width: @icon__width,
+                @_icon-image-height: @icon__height,
+                @_icon-image-position: @icon__position,
+                @_icon-image-text-hide: @icon__text-hide);
+
+            &:before {
+                background-size: @icon__width @icon__height;
+                margin-right: 6px;
+            }
+
+            a {
+                line-height: 23px;
+            }
+        }
+    }
+
+    // navigatison
+    .navigation {
+        ul {
+            padding: 19px 8px 6px;
+        }
+
+        .nav-image {
+            margin-left: 3.8%;
+            margin-right: 15px;
+        }
+
+        .level0 {
+            &>.level-top {
+                .lib-css(font-size, @navigation-level0-item__font-size);
+                .lib-css(font-weight, @navigation-level0-item__font-weight);
+                .lib-css(letter-spacing, @navigation-level0-item__letter-spacing);
+            }
+
+            &:nth-child(3) {
+                margin: 0 21px;
+            }
+
+            &:nth-child(5) {
+                margin-left: 21px;
+                margin-right: 19px;
+            }
+
+            &:nth-child(7) {
+                margin-left: 21px;
+                margin-right: 19px;
+            }
+
+            &:last-child {
+                margin-left: 3px;
+            }
+        }
+    }
+}
+
+//
+//  Mobile
+//  _____________________________________________

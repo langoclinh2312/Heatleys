@@ -1,0 +1,50 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * Copyright © Magento, Inc. All rights reserved.
+ * See COPYING.txt for license details.
+ */
+-->
+<page layout="3columns"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
+    <update handle="default_head_blocks"/>
+    <body>
+        <!-- UPDATE -->
+        <referenceBlock name="header.links">
+            <block class="Magento\Cms\Block\Block" name="header-middle-link" before="-">
+                <arguments>
+                    <argument name="block_id" xsi:type="string">header-middle-link</argument>
+                </arguments>
+            </block>
+        </referenceBlock>
+        <!-- header -->
+
+        <referenceContainer name="footer-container">
+            <container name="bottom.row" htmlTag="div" htmlClass="newsletter-row row" before="-">
+                <container name="footer.newsletter" label="footer.newsletter" htmlTag="div" htmlClass="footer-newsletter" before="-">
+                    <block class="Magento\Cms\Block\Block" name="subscribe.title">
+                        <arguments>
+                            <argument name="block_id" xsi:type="string">subscribe-title</argument>
+                        </arguments>
+                    </block>
+                </container>
+                <block class="Magento\Cms\Block\Block" name="support">
+                    <arguments>
+                        <argument name="block_id" xsi:type="string">support</argument>
+                    </arguments>
+                </block>
+            </container>
+            <!-- Newsletter -->
+        </referenceContainer>
+        <!-- footer -->
+
+        <!-- REMOVE -->
+        <referenceBlock name="register-link" remove="true" />
+        <referenceBlock name="footer_links" remove="true"/>
+
+        <!-- MOVE -->
+        <move element="header.links" destination="header-wrapper" after="minicart" />
+        <move element="form.subscribe" destination="footer.newsletter" after="subscribe.title" />
+
+    </body>
+</page>

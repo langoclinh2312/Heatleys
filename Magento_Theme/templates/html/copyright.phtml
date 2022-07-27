@@ -1,0 +1,21 @@
+<?php
+
+/**
+ * Copyright © Magento, Inc. All rights reserved.
+ * See COPYING.txt for license details.
+ */
+?>
+<div class="footer-bottom">
+    <?php
+    echo $block->getLayout()
+
+        ->createBlock('Magento\Cms\Block\Block')
+
+        ->setBlockId('img-icon-footer')
+
+        ->toHtml();
+    ?>
+    <small class="copyright">
+        <span><?= $block->escapeHtml($block->getCopyright()) ?></span>
+    </small>
+</div>
