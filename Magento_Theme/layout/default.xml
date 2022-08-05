@@ -17,6 +17,20 @@
                 </arguments>
             </block>
         </referenceBlock>
+        <referenceBlock name="store.menu">
+            <container name="header-nav-link" htmlTag="div" htmlClass="header-nav-links" before="-">
+                <block class="Magento\Cms\Block\Block" name="header-middle-link-mobile">
+                    <arguments>
+                        <argument name="block_id" xsi:type="string">header-middle-link</argument>
+                    </arguments>
+                </block>
+            </container>
+            <block class="Magento\Cms\Block\Block" name="header.us" after="-">
+                <arguments>
+                    <argument name="block_id" xsi:type="string">header-top</argument>
+                </arguments>
+            </block>
+        </referenceBlock>
         <!-- header -->
 
         <referenceContainer name="footer-container">
@@ -41,8 +55,10 @@
         <!-- REMOVE -->
         <referenceBlock name="register-link" remove="true" />
         <referenceBlock name="footer_links" remove="true"/>
+        <referenceBlock name="store.links" remove="true"/>
 
         <!-- MOVE -->
+        <move element="register-link" destination="header-middle-link-mobile" after="-" />
         <move element="header.links" destination="header-wrapper" after="minicart" />
         <move element="form.subscribe" destination="footer.newsletter" after="subscribe.title" />
 

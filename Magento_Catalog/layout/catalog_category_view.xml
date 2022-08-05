@@ -1,0 +1,42 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * Copyright © Magento, Inc. All rights reserved.
+ * See COPYING.txt for license details.
+ */
+-->
+<page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" layout="2columns-left" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
+    <body>
+        <attribute name="class" value="page-with-filter"/>
+        <!-- update -->
+        <referenceContainer name="content">
+            <!-- <block class="Magento\LayeredNavigation\Block\Navigation\Search" name="catalogsearch.fiter.options" before="category.products" template="Magento_LayeredNavigation::layer/fiter_options.phtml">
+                <block class="Magento\LayeredNavigation\Block\Navigation\State" name="catalogsearch.options.state" as="state" />
+                <block class="Magento\LayeredNavigation\Block\Navigation\FilterRenderer" name="catalogsearch.options.renderer" as="renderer" template="Magento_LayeredNavigation::layer/filter.phtml"/>
+            </block> -->
+            <referenceContainer name="product.info.main">
+                <block class="Magento\Catalog\Block\Product\View\Description" name="product.info.brand" template="product/view/attribute.phtml" before="-">
+                    <arguments>
+                        <argument name="at_call" xsi:type="string">getBrand</argument>
+                        <argument name="at_code" xsi:type="string">brand</argument>
+                        <argument name="css_class" xsi:type="string">brand</argument>
+                        <argument name="at_label" xsi:type="string">none</argument>
+                        <argument name="add_attribute" xsi:type="string">itemprop="brand"</argument>
+                    </arguments>
+                </block>
+            </referenceContainer>
+        </referenceContainer>
+
+        <!-- remove -->
+        <referenceBlock name="catalog.compare.sidebar" remove="true" />
+        <referenceBlock name="category.product.addto" remove="true" />
+        <referenceBlock name="category.product.addto.compare" remove="true" />
+        <referenceBlock name="wishlist_sidebar" remove="true"/>
+        <referenceBlock name="view.addto.wishlist" remove="true" />
+        <referenceBlock name="category.product.addto.wishlist" remove="true" />
+
+
+        <!-- move -->
+        <move element="page.main.title" destination="content" before="-"/>
+    </body>
+</page>

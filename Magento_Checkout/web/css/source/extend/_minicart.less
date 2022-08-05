@@ -50,6 +50,11 @@
 
             .counter-number {
                 text-shadow: none;
+                font-family: 'Poppins Bold';
+                font-size: 12px;
+                font-weight: 600;
+                letter-spacing: 0;
+                line-height: 18px;
             }
         }
     }
@@ -123,6 +128,8 @@
 
 .media-width(@extremum, @break) when (@extremum ='max') and (@break =@screen__xs) {
     .minicart-wrapper {
+        margin: 0;
+
         .action {
             &.showcart {
                 .counter.qty {

@@ -9,10 +9,90 @@
 
 //  Magento extend Newsletter handling. Should be EMPTY.
 
-// & when (@media-common =true) {}
+& when (@media-common =true) {
+
+    //  Newsletter subscription
+    .block.newsletter {
+        margin-top: 18px;
+        margin-bottom: 24px;
+
+        .field {
+            .control {
+                &:before {
+                    content: '';
+                }
+            }
+        }
+
+        input {
+            box-sizing: border-box;
+            margin-right: 35px;
+            height: 54px;
+            border: 2px solid @color-blue-dodger_light0;
+            border-radius: 5px;
+            background-color: @color-white;
+            font-size: 14px;
+            font-weight: 500;
+            letter-spacing: 0;
+            line-height: 20px;
+            border-bottom-right-radius: 0;
+            border-top-right-radius: 0;
+            font-size: 14px;
+            color: @color-blue-dodger_light0;
+
+            &::placeholder {
+                color: @color-blue-dodger_light0;
+            }
+        }
+
+        .action.subscribe {
+            font-size: 15px;
+            font-weight: bold;
+            letter-spacing: 0;
+            line-height: 15px;
+        }
+    }
+}
 
 //
 //  Desktop
 //  _____________________________________________
 
-// .media-width(@extremum, @break) when (@extremum ='min') and (@break =@screen__m) {}
+.media-width(@extremum, @break) when (@extremum ='min') and (@break =@screen__m) {
+    .block.newsletter {
+        max-width: 100%;
+        width: 100%;
+
+        input {
+            padding-left: 13px;
+        }
+
+        .action.subscribe {
+            padding: 17.5px 22px;
+        }
+    }
+}
+
+//
+//  Mobile
+//  _____________________________________________
+
+.media-width(@extremum, @break) when (@extremum ='max') and (@break =@screen__m) {
+    .block {
+        &.newsletter {
+            input {
+                padding-left: 16px;
+            }
+
+            .field {
+                .control:before {
+                    content: '';
+                }
+            }
+
+            .action.subscribe {
+                padding: 17.7px 19px;
+            }
+        }
+    }
+}

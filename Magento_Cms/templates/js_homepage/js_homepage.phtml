@@ -1,0 +1,145 @@
+<?php
+
+/**
+ * Copyright © Magento, Inc. All rights reserved.
+ * See COPYING.txt for license details.
+ */
+?>
+
+<!-- slick -->
+
+<script type="text/javascript">
+    require([
+        'jquery'
+    ], function($) {
+        $("#banner").closest(".widget").css({
+            "padding": "0",
+            "margin": "0",
+            "max-width": "100%",
+            "background": "#EFF1F5"
+        });
+
+        $("#blog-heatleys   ").closest(".widget").css({
+            "padding": "0",
+            "margin": "0",
+            "max-width": "100%",
+            "background": "#EFF1F5"
+        });
+    });
+</script>
+
+<script>
+    require([
+        'jquery',
+        'slick',
+        'domReady!'
+    ], function($) {
+        $(document).ready(function() {
+
+            // banner-rbt
+            $('#banner-rbt').slick({
+                dots: false,
+                infinite: false,
+                arrows: false,
+                speed: 300,
+                slidesToShow: 5,
+                slidesToScroll: 5,
+                responsive: [{
+                    breakpoint: 600,
+                    settings: {
+                        arrows: true,
+                        slidesToShow: 1,
+                        slidesToScroll: 1,
+                        prevArrow: '<button type="button" class="slick-prev-btn"><i class="fa-solid fa-chevron-left"></i></button>',
+                        nextArrow: '<button type="button" class="slick-next-btn"><i class="fa-solid fa-chevron-right"></i></button>',
+                    }
+                }]
+            });
+
+            // banner
+            $('#banner').slick({
+                dots: true,
+                infinite: true,
+                arrows: false,
+                speed: 300,
+                slidesToShow: 1,
+                slidesToScroll: 1
+            });
+
+            // product
+            $(".block-products-list").find(".grid").removeClass("products-grid");
+            $(".actions-primary").find(".action.tocart").removeClass("primary");
+            $(".actions-primary").find(".action.tocart").addClass("secondary");
+            $('.product-items').slick({
+                dots: false,
+                infinite: true,
+                speed: 300,
+                slidesToShow: 5,
+                slidesToScroll: 1,
+                prevArrow: '<button type="button" class="slick-prev-left"><i class="fa-solid fa-chevron-left"></i></button>',
+                nextArrow: '<button type="button" class="slick-next-right"><i class="fa-solid fa-chevron-right"></i></button>',
+                responsive: [{
+                        breakpoint: 1024,
+                        settings: {
+                            slidesToShow: 3,
+                            slidesToScroll: 1
+                        }
+                    },
+                    {
+                        breakpoint: 600,
+                        settings: {
+                            slidesToShow: 2,
+                            slidesToScroll: 1
+                        }
+                    },
+                    {
+                        breakpoint: 480,
+                        settings: {
+                            slidesToShow: 2,
+                            slidesToScroll: 1
+                        }
+                    }
+                ]
+            });
+
+            // featured-brands
+            $(".brands-links").find("a").addClass("action primary");
+
+            // services-solutions
+            $(".solutions-link").find("a").addClass("action primary");
+
+            // news-heatleys
+            $('#news-heatleys').slick({
+                dots: false,
+                infinite: false,
+                arrows: false,
+                speed: 300,
+                slidesToShow: 4,
+                slidesToScroll: 1,
+                responsive: [{
+                        breakpoint: 1024,
+                        settings: {
+                            slidesToShow: 3,
+                            slidesToScroll: 1
+                        }
+                    },
+                    {
+                        breakpoint: 600,
+                        settings: {
+                            slidesToShow: 2,
+                            slidesToScroll: 1
+                        }
+                    },
+                    {
+                        breakpoint: 480,
+                        settings: {
+                            dots: true,
+                            slidesToShow: 1.2,
+                            slidesToScroll: 1
+                        }
+                    }
+                ]
+            });
+        });
+    });
+</script>

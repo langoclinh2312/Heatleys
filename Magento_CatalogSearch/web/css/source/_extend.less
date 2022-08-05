@@ -21,26 +21,14 @@
 //  Common
 //  _____________________________________________
 
-// & when (@media-common =true) {}
-
-//
-//  Desktop
-//  _____________________________________________
-
-.media-width(@extremum, @break) when (@extremum ='min') and (@break =@screen__m) {
+& when (@media-common =true) {
     .block-search {
-        padding-left: 37px;
-        width: 366px;
-        float: left;
-
         .control {
             height: 48px;
         }
 
         input {
             height: 100%;
-            padding-left: 15px;
-            padding-top: 7px;
             border-radius: 5px 5px 0 0;
             border-bottom: 3px solid @color-blue-dodger_light0;
         }
@@ -56,8 +44,6 @@
                 @_icon-image-height: @icon-search__height,
                 @_icon-image-position: @icon-search__position,
                 @_icon-image-text-hide: @icon-search__text-hide);
-            right: 17px;
-            top: 15px;
 
             &:before {
                 background-size: @icon-search__width @icon-search__height;
@@ -67,6 +53,76 @@
                 &:before {
                     .lib-css(color, @color-white);
                 }
+            }
+        }
+    }
+}
+
+//
+//  Desktop
+//  _____________________________________________
+
+.media-width(@extremum, @break) when (@extremum ='min') and (@break =@screen__m) {
+    .block-search {
+        padding-left: 37px;
+        width: 366px;
+        float: left;
+
+        input {
+            padding-left: 15px;
+            padding-top: 7px;
+        }
+
+        .action.search {
+            right: 17px;
+            top: 15px;
+        }
+    }
+}
+
+//
+//  Mobile
+//  _____________________________________________
+
+.media-width(@extremum, @break) when (@extremum ='max') and (@break =@screen__m) {
+    .block-search {
+        margin-top: 25px;
+        box-sizing: border-box;
+
+        .block-content {
+            position: relative;
+            padding: 16px 0;
+        }
+
+        input {
+            margin: 15px 0;
+            position: unset;
+        }
+
+        .control {
+            border-top: none;
+            margin: 0 -12px;
+            padding: 0 12px;
+        }
+
+        input {
+            padding-left: 15px;
+            padding-top: 7px;
+            margin: 0;
+        }
+
+        .actions {
+            height: 0;
+        }
+
+        .action.search {
+            padding: 0;
+            border: 0;
+
+            &:before {
+                position: absolute;
+                right: 16px;
+                top: 31.25px;
             }
         }
     }
