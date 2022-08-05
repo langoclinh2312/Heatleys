@@ -15,7 +15,7 @@
                 <block class="Magento\LayeredNavigation\Block\Navigation\FilterRenderer" name="catalogsearch.options.renderer" as="renderer" template="Magento_LayeredNavigation::layer/filter.phtml"/>
             </block> -->
             <referenceContainer name="product.info.main">
-                <block class="Magento\Catalog\Block\Product\View\Description" name="product.info.brand" template="product/view/attribute.phtml" before="-">
+                <!-- <block class="Magento\Catalog\Block\Product\View\Description" name="product.info.brand" template="product/view/attribute.phtml" before="-">
                     <arguments>
                         <argument name="at_call" xsi:type="string">getBrand</argument>
                         <argument name="at_code" xsi:type="string">brand</argument>
@@ -23,7 +23,7 @@
                         <argument name="at_label" xsi:type="string">none</argument>
                         <argument name="add_attribute" xsi:type="string">itemprop="brand"</argument>
                     </arguments>
-                </block>
+                </block> -->
             </referenceContainer>
         </referenceContainer>
 
