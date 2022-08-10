@@ -67,9 +67,11 @@ $_helper = $this->helper(Magento\Catalog\Helper\Output::class);
                             <?php
                             $_productNameStripped = $block->stripTags($_product->getName(), null, true);
                             ?>
-                            <div class="product-item-brand">
-                                <?= /* @noEscape */ $_helper->productAttribute($_product, $_product->getName(), 'name') ?>
-                            </div>
+                            <?php if ($_product->getResource()->getAttribute('brand')->getFrontend()->getValue($_product) !== null) : ?>
+                                <div class="product-item-brand">
+                                    <?= /* @noEscape */ $_helper->productAttribute($_product, $_product->getBrand(), 'brand') ?>
+                                </div>
+                            <?php endif; ?>
                             <strong class="product name product-item-name">
                                 <a class="product-item-link" href="<?= $block->escapeUrl($_product->getProductUrl()) ?>">
                                     <?= /* @noEscape */ $_helper->productAttribute($_product, $_product->getName(), 'name') ?>
@@ -79,6 +81,13 @@ $_helper = $this->helper(Magento\Catalog\Helper\Output::class);
                             <?= /* @noEscape */ $block->getProductPrice($_product) ?>
                             <?php if ($_product->isAvailable()) : ?>
                                 <?= $block->getProductDetailsHtml($_product) ?>
+                            <?php endif; ?>
+
+                            <?php if ($_product->getResource()->getAttribute('i_n_product')->getFrontend()->getValue($_product) !== null) : ?>
+                                <div class="product-item-in">
+                                    <?= $_product->getResource()->getAttribute('i_n_product')->getStoreLabel() ?>
+                                    <?= /* @noEscape */ $_helper->productAttribute($_product, $_product->geti_n_product(), 'i_n_product'); ?>
+                                </div>
                             <?php endif; ?>
 
                             <div class="product-item-inner">

@@ -8,12 +8,13 @@
 <page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" layout="2columns-left" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
     <body>
         <attribute name="class" value="page-with-filter"/>
+
         <!-- update -->
         <referenceContainer name="content">
-            <!-- <block class="Magento\LayeredNavigation\Block\Navigation\Search" name="catalogsearch.fiter.options" before="category.products" template="Magento_LayeredNavigation::layer/fiter_options.phtml">
-                <block class="Magento\LayeredNavigation\Block\Navigation\State" name="catalogsearch.options.state" as="state" />
-                <block class="Magento\LayeredNavigation\Block\Navigation\FilterRenderer" name="catalogsearch.options.renderer" as="renderer" template="Magento_LayeredNavigation::layer/filter.phtml"/>
-            </block> -->
+            <block class="Magento\LayeredNavigation\Block\Navigation\Search" name="catalogsearch.topfilter" before="-" template="Magento_LayeredNavigation::layer/fiter_options.phtml">
+                <block class="Magento\LayeredNavigation\Block\Navigation\State" name="catalogsearch.navigation.state" as="state" />
+                <block class="Magento\LayeredNavigation\Block\Navigation\FilterRenderer" name="catalogsearch.navigation.renderer" as="renderer" template="Magento_LayeredNavigation::layer/filter.phtml"/>
+            </block>
         </referenceContainer>
 
         <!-- remove -->
@@ -23,7 +24,6 @@
         <referenceBlock name="wishlist_sidebar" remove="true"/>
         <referenceBlock name="view.addto.wishlist" remove="true" />
         <referenceBlock name="category.product.addto.wishlist" remove="true" />
-
 
         <!-- move -->
         <move element="page.main.title" destination="content" before="-"/>
