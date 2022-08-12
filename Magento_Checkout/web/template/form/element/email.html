@@ -1,0 +1,32 @@
+<!--
+/**
+ * Copyright © Magento, Inc. All rights reserved.
+ * See COPYING.txt for license details.
+ */
+-->
+<!-- ko ifnot: isCustomerLoggedIn() -->
+
+<!-- ko foreach: getRegion('before-login-form') -->
+<!-- ko template: getTemplate() -->
+<!-- /ko -->
+<!-- /ko -->
+<form class="form form-login" data-role="email-with-possible-login">
+    <fieldset id="customer-email-fieldset" class="fieldset" data-bind="blockLoader: isLoading">
+        <div class="field required">
+            <label class="label" for="customer-email">
+                <span data-bind="i18n: 'Email Address'"></span>
+            </label>
+            <div class="control _with-tooltip">
+                <input class="input-text" type="email" data-bind="
+                            textInput: email,
+                            hasFocus: emailFocused,
+                            mageInit: {'mage/trim-input':{}}" data-validate="{required:true, 'validate-email':true}" id="customer-email" />
+                <span class="note" data-bind="i18n: 'Already got an account?'"></span>
+                <a class="action remind" data-bind="attr: { href: loginUrl }">
+                    <span data-bind="i18n: 'Sign in'"></span>
+                </a>
+            </div>
+        </div>
+    </fieldset>
+</form>
+<!-- /ko -->

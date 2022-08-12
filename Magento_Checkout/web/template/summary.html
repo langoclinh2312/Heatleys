@@ -1,0 +1,19 @@
+<!--
+/**
+ * Copyright © Magento, Inc. All rights reserved.
+ * See COPYING.txt for license details.
+ */
+-->
+<div class="opc-block-summary" data-bind="blockLoader: isLoading">
+    <div class="summary-toggle" data-bind="mageInit: {'collapsible':{ 'collapsible' : 'true', 'openedState': 'active', 'active': 'true' }}">
+        <div data-role="title">
+            <span data-bind="i18n: 'Order Summary'" class="title"></span>
+        </div>
+        <div class="content summary-content" data-role="content">
+            <!-- ko foreach: elems() -->
+            <!-- ko template: getTemplate() -->
+            <!-- /ko -->
+            <!-- /ko -->
+        </div>
+    </div>
+</div>
