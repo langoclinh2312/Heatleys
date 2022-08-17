@@ -13,16 +13,22 @@
 
     <div class="product-item-inner">
         <div class="product-item-name-block">
-            <strong class="product-item-name" data-bind="html: $parent.name"></strong>
+            <strong class="product-item-name" data-bind="text: $parent.name"></strong>
+            <!-- ko if: (getInproduct($parent) !== '')-->
+            <div class="custom-attribute">
+                <div class="product-item-in-product">
+                    <span class="label"><!-- ko i18n: 'I/N:' --><!-- /ko --></span>
+                    <span class="value" data-bind="text: getInproduct($parent)"></span>
+                </div>
+            </div>
+
+            <!-- /ko -->
             <div class="details-qty">
                 <span class="label"><!-- ko i18n: 'Qty' --><!-- /ko --></span>
                 <span class="value" data-bind="text: $parent.qty"></span>
             </div>
-            <div class="details-text">
-                <span class="label"><!-- ko i18n: 'Qty' --><!-- /ko --></span>
-                <span class="value" data-bind="text: $parent.full_view"></span>
-            </div>
         </div>
+
         <!-- ko foreach: getRegion('after_details') -->
         <!-- ko template: getTemplate() -->
         <!-- /ko -->
@@ -49,7 +55,3 @@
     </div>
     <!-- /ko -->
 </div>
-<!-- ko foreach: getRegion('item_message') -->
-<!-- ko template: getTemplate() -->
-<!-- /ko -->
-<!-- /ko -->
