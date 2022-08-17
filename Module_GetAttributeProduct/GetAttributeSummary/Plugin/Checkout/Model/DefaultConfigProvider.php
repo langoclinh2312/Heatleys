@@ -30,6 +30,7 @@ class DefaultConfigProvider
         foreach ($items as $index => $item) {
             $quoteItem = $this->checkoutSession->getQuote()->getItemById($item['item_id']);
             $result['quoteItemData'][$index]['i_n_product'] = $quoteItem->getProduct()->getAttributeText('i_n_product');
+            $result['quoteItemData'][$index]['npm_product'] = $quoteItem->getProduct()->getAttributeText('npm_product');
         }
         return $result;
     }

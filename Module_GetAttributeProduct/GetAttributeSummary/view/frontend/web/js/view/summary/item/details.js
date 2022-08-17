@@ -29,11 +29,29 @@ define(
 
             /**
              * @param {Object} quoteItem
+             * @return {Object}
+             */
+            getAttributeProduct: function(quoteItem) {
+                let item = this.getItem(quoteItem.item_id);
+                return item.product;
+            },
+
+            /**
+             * @param {Object} quoteItem
              * @return {String}
              */
             getInproduct: function(quoteItem) {
                 let item = this.getItem(quoteItem.item_id);
                 return item.product.i_n_product;
+            },
+
+            /**
+             * @param {Object} quoteItem
+             * @return {String}
+             */
+            getNpmproduct: function(quoteItem) {
+                let item = this.getItem(quoteItem.item_id);
+                return item.product.npm_product;
             },
 
             /**

@@ -14,15 +14,20 @@
     <div class="product-item-inner">
         <div class="product-item-name-block">
             <strong class="product-item-name" data-bind="text: $parent.name"></strong>
-            <!-- ko if: (getInproduct($parent) !== '')-->
             <div class="custom-attribute">
+                <!-- ko if: (getInproduct($parent) !== '')-->
                 <div class="product-item-in-product">
                     <span class="label"><!-- ko i18n: 'I/N:' --><!-- /ko --></span>
                     <span class="value" data-bind="text: getInproduct($parent)"></span>
                 </div>
+                <!-- /ko -->
+                <!-- ko if: (getNpmproduct($parent) !== '')-->
+                <div class="product-item-npm-product">
+                    <span class="label"><!-- ko i18n: 'NPM:' --><!-- /ko --></span>
+                    <span class="value" data-bind="text: getNpmproduct($parent)"></span>
+                </div>
+                <!-- /ko -->
             </div>
-
-            <!-- /ko -->
             <div class="details-qty">
                 <span class="label"><!-- ko i18n: 'Qty' --><!-- /ko --></span>
                 <span class="value" data-bind="text: $parent.qty"></span>
